@@ -1,0 +1,21 @@
+00:52:58 **** Incremental Build of configuration Debug for project TaskScheduler ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "TaskScheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\USER\OneDrive\Documents\STM32 Projects\STM32 Workspace\TaskScheduler\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TaskScheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TaskScheduler.elf
+ 
+arm-none-eabi-size   TaskScheduler.elf 
+arm-none-eabi-objdump -h -S  TaskScheduler.elf  > "TaskScheduler.list"
+   text	   data	    bss	    dec	    hex	filename
+   7680	    160	   1712	   9552	   2550	TaskScheduler.elf
+Finished building: default.size.stdout
+ 
+Finished building: TaskScheduler.list
+ 
+00:53:03 **** Incremental Build of configuration Debug for project TaskScheduler ****
+make -j8 all 
+arm-none-eabi-size   TaskScheduler.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7680	    160	   1712	   9552	   2550	TaskScheduler.elf
+Finished building: default.size.stdout
+ 
