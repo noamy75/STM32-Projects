@@ -6,3 +6,9 @@ The project was written without any libraries for an STM32F407 microcontroller.
   
 https://user-images.githubusercontent.com/96314781/197357281-cf3d95a2-b070-4ac1-a71d-2734f8990f1d.mp4
 
+**Memory organization:**
+
+![image](https://user-images.githubusercontent.com/96314781/200632540-3c752f1e-c418-4b1a-871d-9e6d0291c375.png)
+
+**Ready & Blocked Queues:**
+
