@@ -21,12 +21,12 @@
 /* Macros --------------------------------------------------------------- */
 
 /* SysTick registers */
-#define SYST_CSR 0xE000E010
-#define SYST_RVR 0xE000E014
+#define SYST_CSR                 0xE000E010
+#define SYST_RVR                 0xE000E014
 
 /* System Control Block registers */
-#define ICSR 0xE000ED04
-#define SHCRS 0xE000ED24
+#define ICSR                     0xE000ED04
+#define SHCRS                    0xE000ED24
 
 /* Stack sizes */
 #define SIZE_TASK_STACK          1024U
@@ -47,15 +47,15 @@
 
 /* Clocking */
 #define TICK_HZ                  1000U
-#define HSI_CLOCK         		 16000000U
-#define SYSTICK_TIM_CLK   		 HSI_CLOCK
+#define HSI_CLOCK                16000000U
+#define SYSTICK_TIM_CLK          HSI_CLOCK
 
 /* Dummy value for xPSR register */
 #define DUMMY_XPSR               0x01000000U       /* Maintain T-bit (bit 24) as 1 */
 
 /* The following EXC_RETURN values are saved the LR on exception entry */
-#define EXC_RETURN_HANDLER       (0xFFFFFFF1UL)    /* return to Handler mode, use MSP after return */                             */
-#define EXC_RETURN_THREAD_MSP    (0xFFFFFFF9UL)    /* return to Thread mode, use MSP after return  */                            */
+#define EXC_RETURN_HANDLER       (0xFFFFFFF1UL)    /* return to Handler mode, use MSP after return */
+#define EXC_RETURN_THREAD_MSP    (0xFFFFFFF9UL)    /* return to Thread mode, use MSP after return  */
 #define EXC_RETURN_THREAD_PSP    (0xFFFFFFFDUL)    /* return to Thread mode, use PSP after return  */
 
 /* Interrupts Enable/Disable */
@@ -85,12 +85,12 @@ typedef enum TaskState
 /* Task Control Block (TCB) structure definition. Contains private information of a task. */
 typedef struct TCB
 {
-	TaskID_e task_id; 				/*!< Specifies the task's ID. This parameter can be any value of @ref TaskID_e */
-	uint32_t *psp_value;			/*!< Specifies the task's private stack pointer. */
-	uint32_t block_count;			/*!< Specifies the task's block duration if it's in BLOCKED state */
-	TaskState_e current_state;		/*!< Specifies the task's state. This parameter can be any value of @ref TaskState_e */
-	void (*task_handler)(void);		/*!< Pointer to the task's handler function. */
-	struct TCB *next;				/*!< Pointer to the next task's TCB in a queue */
+	TaskID_e task_id;               /*!< Specifies the task's ID. This parameter can be any value of @ref TaskID_e */
+	uint32_t *psp_value;            /*!< Specifies the task's private stack pointer. */
+	uint32_t block_count;           /*!< Specifies the task's block duration if it's in BLOCKED state */
+	TaskState_e current_state;      /*!< Specifies the task's state. This parameter can be any value of @ref TaskState_e */
+	void (*task_handler)(void);     /*!< Pointer to the task's handler function. */
+	struct TCB *next;               /*!< Pointer to the next task's TCB in a queue */
 } TaskControlBlock_t;
 
 /* Functions prototypes --------------------------------------------------------- */

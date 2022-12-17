@@ -219,16 +219,16 @@ void SysTick_Init(uint32_t TickHz)
 
     /* Calculate the reload value */
 	uint32_t SystemTicksInOneSecond = (SYSTICK_TIM_CLK/TickHz);
-    uint32_t ReloadValue = SystemTicksInOneSecond-1;
+	uint32_t ReloadValue = SystemTicksInOneSecond-1;
 
-    /* Clear RVR and load the reload value */
-    *pSYST_RVR &= ~(0x00FFFFFFFF);
-    *pSYST_RVR |= ReloadValue;
+	/* Clear RVR and load the reload value */
+	*pSYST_RVR &= ~(0x00FFFFFFFF);
+	*pSYST_RVR |= ReloadValue;
 
-    /* Enable the SysTick features */
-    *pSYST_CSR |= ( 1 << 1); /* Enable SysTick exception request - assert request */
-    *pSYST_CSR |= ( 1 << 2); /* Indicates the clock source - processor clock */
-    *pSYST_CSR |= ( 1 << 0); /* Enable the counter */
+	/* Enable the SysTick features */
+	*pSYST_CSR |= ( 1 << 1); /* Enable SysTick exception request - assert request */
+	*pSYST_CSR |= ( 1 << 2); /* Indicates the clock source - processor clock */
+	*pSYST_CSR |= ( 1 << 0); /* Enable the counter */
 }
 
 /**
@@ -238,11 +238,11 @@ void SysTick_Init(uint32_t TickHz)
   */
 __attribute__((naked)) void Scheduler_Stack_Init(uint32_t SchedulerStackStart)
 {
-    /* Move the value of scheduler_stack_start to MSP using a register */
+	/* Move the value of scheduler_stack_start to MSP using a register */
 	__asm volatile("MSR MSP,%0": : "r" (SchedulerStackStart) : );
 
 	/* Branch using LR */
-    __asm volatile("BX LR");
+	__asm volatile("BX LR");
 }
 
 /**
@@ -333,7 +333,7 @@ void Save_PSP_Value(uint32_t CurrentPSPValue)
   */
 __attribute__((naked)) void Switch_SP_To_PSP(void)
 {
-    /* Set PSP to the current running task's stack pointer */
+	/* Set PSP to the current running task's stack pointer */
 	__asm volatile ("PUSH {LR}");        /* Before branching, save LR which connects back to main(), on the scheduler stack*/
 	__asm volatile ("BL Get_PSP_Value"); /* Get the PSP value of the current running task */
 	__asm volatile ("MSR PSP,R0");       /* Set PSP. The value returned from Get_PSP_Value is stored in R0. */
@@ -408,7 +408,6 @@ void Increment_Global_Tick_Count(void)
   */
 void Unblock_Tasks(void)
 {
-
 	/* It's enough to check the head in each iteration, since the queue is sorted and qualified tasks
 	 * get unblocked immediately */
 	while(gBlockedQueue.head != NULL)

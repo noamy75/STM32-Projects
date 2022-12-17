@@ -47,8 +47,8 @@ void Led_Init(void)
   */
 void Led_On(uint8_t LedNumber)
 {
-  uint32_t *pGpiodDataReg = (uint32_t*)GPIOD_ODR;
-  *pGpiodDataReg |= (1 << LedNumber); /* pGpiodDataReg[LedNumber] = 1 */
+	uint32_t *pGpiodDataReg = (uint32_t*)GPIOD_ODR;
+	*pGpiodDataReg |= (1 << LedNumber); /* pGpiodDataReg[LedNumber] = 1 */
 }
 
 /**
@@ -58,6 +58,6 @@ void Led_On(uint8_t LedNumber)
   */
 void Led_Off(uint8_t LedNumber)
 {
-	  uint32_t *pGpiodDataReg = (uint32_t*)GPIOD_ODR;
-	  *pGpiodDataReg &= ~(1 << LedNumber); /* pGpiodDataReg[LedNumber] = 0 */
+	uint32_t *pGpiodDataReg = (uint32_t*)GPIOD_ODR;
+	*pGpiodDataReg &= ~(1 << LedNumber); /* pGpiodDataReg[LedNumber] = 0 */
 }

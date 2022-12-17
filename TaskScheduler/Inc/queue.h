@@ -3,7 +3,7 @@
  * @file           : queue.h
  * @author         : Noam Yakar
  * @brief          : Header file of Queue module. This file contains enumerations,
- * 					 macros, structures definitions and functions prototypes.
+ *                   macros, structures definitions and functions prototypes.
  ******************************************************************************
 */
 
@@ -30,18 +30,18 @@ typedef enum
 {
 	REGULAR_ENQUEUE,               /*!< The new task is inserted at the end of the queue */
 	ENQUEUE_WITH_REAR_IDLE_TASK,   /*!< The new task is inserted one item before the end of
-										the queue. At the end there's the idle task */
-	ENQUEUE_SORTED				   /*!< The queue is actually a sorted linked list, sorted by the
-										block_count property, and the new task is placed according
-										to its block_count value */
+	                                    the queue. At the end there's the idle task */
+	ENQUEUE_SORTED                 /*!< The queue is actually a sorted linked list, sorted by the
+                                        block_count property, and the new task is placed according
+                                        to its block_count value */
 } EnqueueMode_e;
 
 /* The method in which a task is dequeued from a queue */
 typedef enum
 {
-	REGULAR_DEQUEUE,				/*!< The task is dequeued from the beginning of the queue */
-	DEQUEUE_WITH_REAR_IDLE_TASK,	/*!< The task is dequeued from the beginning of the queue,
-	 	 	 	 	 	 	 	 	 	 but the idle task is not dequeued. */
+	REGULAR_DEQUEUE,               /*!< The task is dequeued from the beginning of the queue */
+	DEQUEUE_WITH_REAR_IDLE_TASK,   /*!< The task is dequeued from the beginning of the queue,
+                                        but the idle task is not dequeued. */
 } DequeueMode_e;
 
 /* Pointers to functions */
@@ -51,10 +51,10 @@ typedef TaskControlBlock_t* (*dequeue)(TaskControlBlock_t**, DequeueMode_e);
 /* Queue structure definition. */
 typedef struct
 {
-	QueueType_e queue_type;			/*!< Specifies the queue's type. This parameter can be any value of @ref QueueType_e */
-	TaskControlBlock_t* head;		/*!< Pointer to the first element of the queue. */
-	enqueue ENQUEUE;				/*!< Pointer to the enqueue function. */
-	dequeue DEQUEUE;				/*!< Pointer to the dequeue function. */
+	QueueType_e queue_type;         /*!< Specifies the queue's type. This parameter can be any value of @ref QueueType_e */
+	TaskControlBlock_t* head;       /*!< Pointer to the first element of the queue. */
+	enqueue ENQUEUE;                /*!< Pointer to the enqueue function. */
+	dequeue DEQUEUE;                /*!< Pointer to the dequeue function. */
 } Queue_t;
 
 /* Functions prototypes ------------------------------------------------------ */

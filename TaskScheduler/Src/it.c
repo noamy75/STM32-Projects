@@ -35,12 +35,12 @@ __attribute__((naked)) void PendSV_Handler(void)
 
 	__asm volatile("PUSH {LR}"); /* Save LR (EXC_RETURN) on the scheduler main stack */
 
-    __asm volatile("BL Save_PSP_Value"); /* Save the PSP value in the current task's TCB. The PSP value
-    										is in R0 and passed as the first argument to the called function */
+	__asm volatile("BL Save_PSP_Value"); /* Save the PSP value in the current task's TCB. The PSP value
+                                            is in R0 and passed as the first argument to the called function */
 
 	/* Retrieve the context of the next task */
 
-    __asm volatile("BL Schedule"); /* Decide the next task to run */
+	__asm volatile("BL Schedule"); /* Decide the next task to run */
 
 	__asm volatile ("BL Get_PSP_Value"); /* Get the new task's PSP value */
 
@@ -66,10 +66,10 @@ void SysTick_Handler(void)
 	Increment_Global_Tick_Count();
 
 	/* Unblock qualified tasks */
-    Unblock_Tasks();
+	Unblock_Tasks();
 
-    /* Pend the PendSV exception and initiate a contect-switch */
-    Pend_PendSV();
+	/* Pend the PendSV exception and initiate a contect-switch */
+	Pend_PendSV();
 }
 
 /**

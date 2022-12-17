@@ -17,14 +17,14 @@
   * @param  pHead - Pointer to a pointer to the first element of the queue.
   * @param  pTask - Pointer to the task to be enqueued.
   * @param  EnqueueMode - an EnqueueMode_e enumerator that specifies the method in which a task is
-  * 		inserted to a queue.
-  * 			This parameter can be one of the following values:
-  * 				@arg REGULAR_ENQUEUE : Insert at the end of the queue.
-  * 				@arg ENQUEUE_WITH_REAR_IDLE_TASK : Insert one item before the end of the queue.
-  * 												   At the end there's the idle task.
-  * 				@arg ENQUEUE_SORTED : The queue is actually a sorted linked list, sorted by the
-										  block_count property, and the new task is placed according
-										  to its block_count value
+  *         inserted to a queue.
+  *             This parameter can be one of the following values:
+  *                 @arg REGULAR_ENQUEUE : Insert at the end of the queue.
+  *                 @arg ENQUEUE_WITH_REAR_IDLE_TASK : Insert one item before the end of the queue.
+  *                                                    At the end there's the idle task.
+  *                 @arg ENQUEUE_SORTED : The queue is actually a sorted linked list, sorted by the
+	                                      block_count property, and the new task is placed according
+	                                      to its block_count value
   * @retval None
   */
 void Enqueue(TaskControlBlock_t **pHead, TaskControlBlock_t *pTask, EnqueueMode_e EnqueueMode)
@@ -144,11 +144,11 @@ void Enqueue(TaskControlBlock_t **pHead, TaskControlBlock_t *pTask, EnqueueMode_
   * @brief  Dequeues a task from a queue in a certain mode.
   * @param  pHead - Pointer to a pointer to the first element of the queue.
   * @param  DequeueMode - a DequeueMode_e enumerator that specifies the method in which a task is
-  * 		removed from a queue.
-  * 			This parameter can be one of the following values:
-  * 				@arg REGULAR_DEQUEUE : Insert at the end of the queue.
-  * 				@arg DEQUEUE_WITH_REAR_IDLE_TASK : The task is dequeued from the beginning of the
-  * 												   queue, but the idle task is not dequeued.
+  *         removed from a queue.
+  *             This parameter can be one of the following values:
+  *                 @arg REGULAR_DEQUEUE : Insert at the end of the queue.
+  *                 @arg DEQUEUE_WITH_REAR_IDLE_TASK : The task is dequeued from the beginning of the
+  *                                                    queue, but the idle task is not dequeued.
   * @retval None
   */
 TaskControlBlock_t* Dequeue(TaskControlBlock_t **pHead, DequeueMode_e DequeueMode)
