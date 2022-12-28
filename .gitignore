@@ -1,4 +1,4 @@
-.metadata
+.metadata/*
 ADC_TIM_UART_const_conv_intervals
 SampleProject
 UART_Button_Interrupt
